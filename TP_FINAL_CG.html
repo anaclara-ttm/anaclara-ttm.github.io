@@ -3,26 +3,32 @@
 <HEAD>
   <TITLE>PAC-MAN</TITLE>
   <link rel="icon" type="imagem/png" href="pacman2.png" />
+  <script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
 
 </HEAD>
 
 <BODY>
+  <!-- autoplay="autoplay" -->
   <audio autoplay="autoplay" controls="controls">
     <source src="pacman.mp3" type="audio/mp3" />
     seu navegador não suporta HTML5
   </audio>
 
 
-  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-
   <a-scene>
     <a-sphere position="0 1.25 -5" radius="1.25" color="#FFFF00"></a-sphere>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#000000"></a-plane>
-    <a-sky color="#ECECEC"></a-sky>
-  </a-scene>
+    <a-sky color="white"></a-sky>
+
+    <a-assets>
+      <a-asset-item id="crate-obj" src="models/3d-model.obj"></a-asset-item>
+      <a-asset-item id="crate-mtl" src="models/3d-model.mtl"></a-asset-item>
+    </a-assets>
 
   
 
+    <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
+
+  </a-scene>
 
 </BODY>
 
