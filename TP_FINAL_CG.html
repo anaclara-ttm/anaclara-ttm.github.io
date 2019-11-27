@@ -27,33 +27,68 @@
   
   </head>
 
-<BODY>
-  <!-- autoplay="autoplay" -->
-  <audio autoplay="autoplay" controls="controls">
-    <source src="pacman.mp3" type="audio/mp3" />
-    seu navegador não suporta HTML5
-  </audio>
+  <body>
 
-
-  <a-scene>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#FFFF00"></a-sphere>
-    <a-sky color="white"></a-sky>
-
-    <a-assets>
-      <a-asset-item id="crate-obj" src="models/3d-model.obj"></a-asset-item>
-      <a-asset-item id="crate-mtl" src="models/3d-model.mtl"></a-asset-item>
-    </a-assets>
-
+    <!--Alteracao (colocar a musica de fundo)-->
+    <audio autoplay="autoplay" controls="controls" loop>
+      <source src="assets/sounds/pacman.mp3" type="audio/mp3" />
+      seu navegador não suporta HTML5
+    </audio>
   
-
-    <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
-
-
-    <a-entity environment></a-entity>
-
-
-  </a-scene>
-
-</BODY>
-
+  
+    <div id="sound" class="overlay"></div>
+    <div id="gameover" class="overlay"></div>
+    <div id="ready" class="overlay">READY!</div>
+  
+    <a-scene>
+      <a-entity position="0 2.25 -15" particle-system="preset: dust">
+      </a-entity>
+  
+      <a-assets>
+        <!--Incluindo o piso do labirinto-->
+        <a-asset-item id="navmesh" src="assets/models/navmesh.gltf"></a-asset-item>
+  
+        <!--Incluindo os fantasmas-->
+        <a-asset-item id="ghost" src="assets/models/ghost.gltf"></a-asset-item>
+  
+        <!--Incluindo o labirinto(paredes)-->
+        <a-asset-item id="maze" src="assets/models/maze.gltf"></a-asset-item>
+  
+        <!--Alteracao (mudou o ícone das vidas)-->
+        <img id="life" src="assets/images/pacman2.png">
+      </a-assets>
+  
+      <!-- Player -->
+      <a-entity movement-controls="constrainToNavMesh: true" keyboard-controls="enabled: false"
+        gamepad-controls="enabled: false" trackpad-controls="enabled: false" touch-controls="enabled: false"
+        position="0 0 4" nav-agent="speed: 0.7; lookAtTarget: false" player>
+        <a-camera position="0 1 0" wasd-controls="enabled: false" look-controls="enabled: false">
+          <a-entity>
+         
+            <a-entity id="score" position="0 0.225 -0.3" text="color: black; align: center; width: 0.4">
+            </a-entity>
+            <a-entity id="highscore" position="0 0.20 -0.3" text="color: black; align: center; width: 0.4">
+            </a-entity>
+          </a-entity>
+        </a-camera>
+        <a-sphere color="yellow" radius="0.4" position="0 0.5 0.05">
+        </a-sphere>
+      </a-entity>
+  
+      <!-- Nav mesh. -->
+  
+  
+  
+      
+  
+      <!-- Scene -->
+      <a-gltf-model scale="1 1.6 1" gltf-model="#maze" maze>
+      </a-gltf-model>
+  
+      <a-plane rotation="-90 0 0" width="15" height="16" color="white">
+      </a-plane>
+  
+      <a-sky color="white"></a-sky>
+    </a-scene>
+  </body>
 </HTML>
