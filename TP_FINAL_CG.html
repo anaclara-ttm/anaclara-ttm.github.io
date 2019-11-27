@@ -3,7 +3,9 @@
 <HEAD>
   <TITLE>PAC-MAN</TITLE>
   <link rel="icon" type="imagem/png" href="pacman2.png" />
-  <script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
+  <script src="https://aframe.io/releases/0.6.0/aframe.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script> 
+
 
 </HEAD>
 
@@ -25,6 +27,10 @@
     </a-assets>
 
     <a-obj-model src="#crate-obj" mtl="#crate-mtl"></a-obj-model>
+
+
+    <a-entity environment></a-entity>
+
 
   </a-scene>
 
