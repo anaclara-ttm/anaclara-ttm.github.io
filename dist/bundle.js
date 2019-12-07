@@ -38896,9 +38896,9 @@
 		onGameOver: function (e) {
 			this.nextBg = void 0, A.stop(), E.stop(), M.stop(), this.el.sceneEl.exitVR();
 			let t = document.getElementById("gameover");
-			t.innerHTML = e ? "YOU WIN" : "GAME OVER", e ? t.classList.add("blink") : t.classList.remove("blink"), t.style.display = "block";
+			t.innerHTML = e ? "Você ganhou! :D" : "Você perdeu! :(", e ? t.classList.add("blink") : t.classList.remove("blink"), t.style.display = "block";
 			let r = document.getElementById("start");
-			r.innerHTML = "RESTART", r.style.display = "block"
+			r.innerHTML = "Restart", r.style.display = "block"
 		},
 		onCollideWithGhost: function (e, t, r, i) {
 			let n = e.getAttribute("position").x,
@@ -38958,7 +38958,7 @@
 				e.dead = !1, e.slow = !1, N(e.object3D, e.defaultColor), _(e, 1), e.object3D.position.set(e.defaultPos.x, e.defaultPos.y, e.defaultPos.z)
 			})
 		}
-	}), AFRAME.registerComponent("ghost", {
+	})/*, AFRAME.registerComponent("ghost", {
 		schema: {
 			type: "string"
 		},
@@ -38977,5 +38977,5 @@
 				i = .515 * n[t][1] - 7.3;
 			D(e, l || new THREE.Vector3(r, 0, i))
 		}
-	})
+	})*/
 }]);
