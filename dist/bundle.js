@@ -38958,7 +38958,7 @@
 				e.dead = !1, e.slow = !1, N(e.object3D, e.defaultColor), _(e, 1), e.object3D.position.set(e.defaultPos.x, e.defaultPos.y, e.defaultPos.z)
 			})
 		}
-	})/*, AFRAME.registerComponent("ghost", {
+	}), AFRAME.registerComponent("ghost", {
 		schema: {
 			type: "string"
 		},
@@ -38977,5 +38977,5 @@
 				i = .515 * n[t][1] - 7.3;
 			D(e, l || new THREE.Vector3(r, 0, i))
 		}
-	})*/
+	})
 }]);
